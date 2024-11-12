@@ -1,0 +1,17 @@
+# ESP32 networking work by Duncan Johnson
+
+Everything is in the software/networking folder. We're connecting to a Modal endpoint.
+
+## ESP32 WiFi Bridge
+
+There are two files, esp32_wifi_bridge.py and computer_wifi_bridge.py. If you run the computer_wifi_bridge.py file on your computer and the esp32_wifi_bridge.py file on the ESP32, you should be able to send messages back and forth.
+
+## ESP32 Websocket
+
+This code is in websockettest.py with support from websocket.py. I couldn't get it to work with the Modal endpoint, I think because the Modal endpoint doesn't allow for non-secure websocket connections and this websocket.py is designed for non-secure connections.
+
+## ESP32 HTTP POST Interaction
+
+This code is in post_interaction.py. It sends an "execute" HTTP POST request to the Modal endpoint when the user pressed the black button on the SmartMotor.
+
+Every 0.1 seconds, it sends a "position" HTTP POST request to the Modal endpoint to get the current position of the SmartMotor. Not sure why I'm not using an HTTP GET request for this.
